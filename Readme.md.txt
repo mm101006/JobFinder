@@ -2,7 +2,7 @@
 
 This App will aide the user in their job search by providing direct links to company's career pages. 
 
-##Phase 1
+## Phase 1
 
 Gather links to companies career pages. Think about what the user would like to store and have access to. 
 
@@ -16,10 +16,10 @@ So far I thought of:
 6. Screen shots of jobs applied to
 7. Interactions with recruiters
 
-##Phase 2
+## Phase 2
 1. Begin to work on the backend -- connecting a database and user authentication.
 2. Create a form allowing the user to interact with the database.
 
-##Phase 3
+## Phase 3
 1. Use Advanced CSS techniques to create an appealing web page.
 2. Configure web page to go live. 
