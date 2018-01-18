@@ -15,6 +15,10 @@ So far I thought of:
 5. Job ID number
 6. Screen shots of jobs applied to
 7. Interactions with recruiters
+8. Use Linkedin as a source to find people with the job title of recruiter
+7. Separate out companies based on available locations
+8. Allow filter for companies only in your area
+9. Track new jobs that are post (webcrawlers?)
 
 ## Phase 2
 1. Begin to work on the backend -- connecting a database and user authentication.
