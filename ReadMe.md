@@ -20,6 +20,7 @@ So far I thought of:
 8. Allow filter for companies only in your area
 9. Track new jobs that are post (webcrawlers?)
 10. Record sites all sites listed, when asked what Internet source did you use
+11. Classify each company
 
 ## Phase 2
 1. Begin to work on the backend -- connecting a database and user authentication.
