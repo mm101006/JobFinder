@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
+import { ReactiveFormsModule } from '@angular/forms';
+
 import { TechnologyComponent } from './technology/technology.component';
 import { FinanceComponent } from './finance/finance.component';
 import { RetailStoresComponent } from './retail-stores/retail-stores.component';
@@ -64,6 +66,7 @@ const appRoutes: Routes = [
   ],
   imports: [
     BrowserModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(appRoutes, {enableTracing: true})
   ],
   providers: [],

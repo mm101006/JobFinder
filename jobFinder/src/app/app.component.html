@@ -17,4 +17,54 @@
   <a routerLink="/construction" routerLinkActive="active">Construction</a>
   <a routerLink="/military" routerLinkActive="active">Military</a>
 </nav>
+<br/>
+<!-- writing directives to override AngularJs behavior of detecting forms, tells angular to use the directive formGroup -->
+<form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+  <div>
+    <div>
+      <!-- formControlName tells angular the name of the input in the typescript form-->
+      <label for="username">Username</label>
+      <input type="text" 
+             id="username" 
+             formControlName="username">
+    </div>
+    <div>
+      <label for="email">Email</label>
+      <input type="text" 
+             id="email" 
+             formControlName="email">
+    </div>
+  </div>
+ <div class="radio" *ngFor="let gender of genders">
+    <label>
+      <input type="radio" 
+             formControlName="gender" 
+             [value]="gender">{{ gender }}
+    </label>
+  </div>
+  <button class="btn btn-primary" type="submit">Submit</button>
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <router-outlet></router-outlet>
