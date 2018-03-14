@@ -23,6 +23,9 @@ import { AppComponent } from './app.component';
 import { OtherComponent } from './other/other.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
+
+import { AppLoginComponent } from './app-login/app-login.component';
+
 const appRoutes: Routes = [
   { path: 'technology', component: TechnologyComponent},
 	{ path: 'finance', component: FinanceComponent, data: { test: 'Testing123'}},
@@ -62,7 +65,8 @@ const appRoutes: Routes = [
     RestaurantComponent,
     OtherComponent,
     ConstructionComponent,
-    MilitaryComponent
+    MilitaryComponent,
+    AppLoginComponent
   ],
   imports: [
     BrowserModule,

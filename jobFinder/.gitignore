@@ -42,3 +42,8 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
+/src/Secrets.ts
+/src/app/Secrets.ts
+/src/app/client_secret_148253917849-9nuj36i6kskb5bnf1397d9rif1ifshlc.apps.googleusercontent.com.json
+/src/app/credentials.json

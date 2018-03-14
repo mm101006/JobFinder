@@ -20,6 +20,7 @@
 <br/>
 <!-- writing directives to override AngularJs behavior of detecting forms, tells angular to use the directive formGroup -->
 <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+  <div formGroupName="userData">
   <div>
     <div>
       <!-- formControlName tells angular the name of the input in the typescript form-->
@@ -27,13 +28,20 @@
       <input type="text" 
              id="username" 
              formControlName="username">
+      <span *ngIf="!signupForm.get('userData.username').valid && signupForm.get('userData.username').touched">
+        <span *ngIf="signupForm.get('userData.username').errors['nameIsForbidden']">This name is invalid</span>
+        <span *ngIf="signupForm.get('userData.username').errors['required']">This field is required</span>
+
+      </span>
     </div>
     <div>
       <label for="email">Email</label>
       <input type="text" 
              id="email" 
              formControlName="email">
+       <span *ngIf="!signupForm.get('userData.email').valid && signupForm.get('userData.email').touched">Please enter a valid email!</span>
     </div>
+  </div>
   </div>
  <div class="radio" *ngFor="let gender of genders">
     <label>
@@ -42,29 +50,18 @@
              [value]="gender">{{ gender }}
     </label>
   </div>
+  <div formArrayName="hobbies">
+    <h4>Your Hobbies</h4>
+    <button type="button" (click)="onAddHobby()">Add Hobby</button>
+    <div *ngFor="let hobbyControl of signupForm.get('hobbies').controls; let i = index">
+      <input type="text" class="form-control" [formControlName]="i">
+    </div>
+  </div>
+  <span *ngIf="!signupForm.valid && signupForm.touched">Please enter valid data!</span>
   <button class="btn btn-primary" type="submit">Submit</button>
 </form>
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<app-app-login></app-app-login>
 <router-outlet></router-outlet>
