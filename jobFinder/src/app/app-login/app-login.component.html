@@ -1,7 +1,3 @@
-
-
-
-
 <p>
   app-login works!
 </p>
@@ -14,19 +10,8 @@
 
 <p id="status"></p>
 
-<!-- For Google Login -->
-<!--   <div class="g-signin2" >
-              <span class="g-signin"
-                data-scope="openid email"
-                data-clientid="148253917849-9nuj36i6kskb5bnf1397d9rif1ifshlc.apps.googleusercontent.com"
-                data-redirecturi="postmessage"
-                data-accesstype="offline"
-                data-cookiepolicy="single_host_origin"
-                data-callback="signInCallback">
-              </span>
-  </div> -->
-
-<button type="button" (click)="googleLogin();">Google Login</button>
+<div id="googleBtn" class="g-signin2" data-theme="dark"></div>
+<button type="button" (click)="signOut();">Sign Out</button>
 
 
 

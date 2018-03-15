@@ -8,7 +8,7 @@ import './polyfills';
 import './app/getFBSDK';
 import './app/getGOOGLESDK';
 
-import {Component, AfterViewInit, ChangeDetectionStrategy, Input, Output, EventEmitter} from '@angular/core';
+import {Component} from '@angular/core';
 
 if (environment.production) {
   enableProdMode();

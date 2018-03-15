@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import secrets from '../Secrets';
+
+declare const gapi: any;
+
 
 
 @Component({
@@ -51,19 +55,42 @@ export class AppLoginComponent implements OnInit {
   	});
   }
 
-  public googleLogin() {
 
-  	gapi.auth2.init({
-  		'client_id': '148253917849-9nuj36i6kskb5bnf1397d9rif1ifshlc.apps.googleusercontent.com',
-  	}).then(function() {
-  		return gapi.client.request({
-  			'path': 'https://people.googleapis.com/v1/people/me?requestMask.includeField=person.names',
-  		})
-  	}).then(function(response) {
-  		console.log(response.result);
-  	}, function(reason) {
-  		console.log('Error: ' + reason.result.error.message);
-  	});
-}; 
 
-}
+  public auth2: any;
+  public googleInit() {
+    gapi.load('auth2', () => {
+      this.auth2 = gapi.auth2.init({
+        client_id: secrets.googleAppId + '.apps.googleusercontent.com',
+        cookiepolicy: 'single_host_origin',
+        scope: 'profile email',
+      });
+      this.attachSignin(document.getElementById('googleBtn'));
+    });
+  }
+  public attachSignin(element) {
+    this.auth2.attachClickHandler(element, {},
+      (googleUser) => {
+      	alert("thhisf");
+      	this.router.navigate(['./retail'])
+        let profile = googleUser.getBasicProfile();
+        console.log('Token || ' + googleUser.getAuthResponse().id_token);
+        console.log('ID: ' + profile.getId());
+        console.log('Name: ' + profile.getName());
+        console.log('Image URL: ' + profile.getImageUrl());
+        console.log('Email: ' + profile.getEmail());
+      }, (error) => {
+        alert(JSON.stringify(error, undefined, 2));
+      });
+  }
+	ngAfterViewInit(){
+	      this.googleInit();
+
+	}
+
+	public signOut(){
+		gapi.auth2.getAuthInstance().disconnect();
+		console.log('user disconnected');
+
+	}
+  }; 
