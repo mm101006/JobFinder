@@ -71,7 +71,6 @@ export class AppLoginComponent implements OnInit {
   public attachSignin(element) {
     this.auth2.attachClickHandler(element, {},
       (googleUser) => {
-      	alert("thhisf");
       	this.router.navigate(['./retail'])
         let profile = googleUser.getBasicProfile();
         console.log('Token || ' + googleUser.getAuthResponse().id_token);
